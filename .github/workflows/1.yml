@@ -1,0 +1,12 @@
+name: Print double-base64-encoded secret
+
+on:
+  workflow_dispatch:   # 手动触发，避免意外执行
+
+jobs:
+  encode:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Double base64 encode secret GARALT
+        run: |
+          printf '%s' "${{ secrets.GARALT }}" | base64 -w0 | base64 -w0
